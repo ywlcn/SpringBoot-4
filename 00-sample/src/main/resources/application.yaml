@@ -1,0 +1,54 @@
+debug: true
+
+server:
+  port: 8001
+
+
+
+spring:
+  application:
+    name: demo
+
+  #  autoconfigure:
+  #    exclude: org.springframework.boot.autoconfigure.session.RedisSessionConfiguration
+  datasource:
+    #url: jdbc:mysql://ramee-dell:3306/moneyhome_main?serverTimezone=GMT%2B8  #${DS_URL}
+    url: ${DATASOURCE_URL:jdbc:mysql://ramee-dell:3306/moneyhome_main?serverTimezone=GMT%2B8}
+    username: root # ${DS_USER}
+    password: 123456 #${DS_PASSWORD}
+    sqlScriptEncoding: UTF-8
+    driverClassName: com.mysql.cj.jdbc.Driver #${DS_CLASS}
+
+
+
+  main:
+    allow-bean-definition-overriding: true
+
+  mvc:
+    apiversion:
+      use:
+        header: API-Version
+
+
+management:
+  newrelic:
+    metrics:
+      export:
+        enabled: true
+        api-key: ${NEWLEIC_L_KEY}
+        account-id: 7515923
+        step: 30s
+        event-type: SpringBootSample
+        client-provider-type: INSIGHTS_API
+        # uri:
+
+#  FROM SpringBootSample
+#  SELECT average(value)
+#  WHERE `id` = 'Compressed Class Space'
+#  AND `metricName` = 'jvmMemoryMax'
+#  TIMESERIES
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"

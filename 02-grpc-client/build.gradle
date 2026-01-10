@@ -1,0 +1,55 @@
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+
+dependencies {
+
+	implementation project(":01-grpc-core")
+
+	implementation "org.springframework.grpc:spring-grpc-client-spring-boot-starter"
+
+
+//	implementation "io.grpc:grpc-services"
+//	implementation "org.springframework.grpc:spring-grpc-server-web-spring-boot-starter"
+
+	// 単体テスト
+	testImplementation "org.springframework.grpc:spring-grpc-test"
+
+//
+//	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//	implementation 'org.springframework.boot:spring-boot-starter-webclient'
+//	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+//	implementation 'io.grpc:grpc-services'
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.0'
+//	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
+//	implementation 'org.springframework.modulith:spring-modulith-starter-core'
+//
+//	compileOnly 'org.projectlombok:lombok'
+//
+//
+//	// データベースの接続
+//	implementation "com.mysql:mysql-connector-j"
+//	implementation "org.hibernate.orm:hibernate-core"
+//	implementation "com.zaxxer:HikariCP"
+//
+//
+//	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+//	runtimeOnly 'org.springframework.modulith:spring-modulith-actuator'
+//	runtimeOnly 'org.springframework.modulith:spring-modulith-observability'
+//
+//	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+//	annotationProcessor 'org.projectlombok:lombok'
+//
+//	testImplementation 'org.springframework.boot:spring-boot-starter-actuator-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-webclient-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+//	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:4.0.0'
+//	testImplementation 'org.springframework.grpc:spring-grpc-test'
+//	testImplementation 'org.springframework.modulith:spring-modulith-starter-test'
+//	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}

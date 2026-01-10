@@ -1,0 +1,25 @@
+#debug: true
+spring:
+  application:
+    name: 02-grpc-client
+
+  grpc:
+    client:
+      channels:
+        local:
+#          health:
+#            enabled: true
+#            service-name: grpc.health.v1.Health
+          address: "static://localhost:8003"
+          plaintext: true  # ← これが重要です
+
+
+
+server:
+  port: 8002
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

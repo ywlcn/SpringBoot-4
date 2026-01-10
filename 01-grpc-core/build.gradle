@@ -1,0 +1,82 @@
+
+buildscript {
+
+	repositories {
+		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+
+	dependencies {
+		classpath "com.google.protobuf:com.google.protobuf.gradle.plugin:${protobufGradlePluginVersion}"
+	}
+}
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+
+apply plugin: "com.google.protobuf"
+
+
+dependencyManagement {
+	imports {
+	}
+}
+
+
+dependencies {
+
+	api "io.grpc:grpc-services"
+	api "org.springframework.grpc:spring-grpc-server-web-spring-boot-starter"
+
+	// 単体テスト
+	testImplementation "org.springframework.grpc:spring-grpc-test"
+
+}
+
+protobuf {
+	protoc {
+		artifact = 'com.google.protobuf:protoc'
+	}
+	plugins {
+		grpc {
+			artifact = 'io.grpc:protoc-gen-grpc-java'
+		}
+	}
+	generateProtoTasks {
+
+		all()*.plugins {
+			grpc {
+				option '@generated=omit'
+			}
+		}
+
+        all().each { task ->
+            task.enabled = false
+        }
+
+//		all().each { task ->
+//			task.plugins {
+//				grpc { option '@generated=omit' }
+//			}
+//
+//			// 出力先を rootProject からの絶対パスで指定
+//			// ※ プロジェクト構成に合わせて path を調整してください
+//			String outputDir = "${rootProject.projectDir}/src/main/java"
+//			task.builtins {
+//				java {
+//					outputSubDir = "${rootProject.projectDir}/src/main/java"
+//				}
+//			}
+//			task.plugins {
+//				grpc {
+//					outputSubDir = "${rootProject.projectDir}/src/main/java"
+//				}
+//			}
+//		}
+	}
+}

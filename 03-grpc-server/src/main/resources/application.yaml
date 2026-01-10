@@ -1,0 +1,13 @@
+debug: true
+spring:
+  application:
+    name: 03-grpc-server
+
+server:
+  port: 8003
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
