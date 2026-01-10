@@ -1,0 +1,47 @@
+#debug: true
+
+server:
+  port: 8004
+
+api:
+#  type: Header
+  type: MediaTypeParameter
+#  type: PathSegment
+#  type: QueryParam
+#  type: VersionResolver
+
+spring:
+  application:
+    name: demo
+
+  main:
+    allow-bean-definition-overriding: true
+
+  mvc:
+    apiversion:
+      use:
+        header: API-Version
+
+
+management:
+  newrelic:
+    metrics:
+      export:
+        enabled: true
+        api-key: ${NEWLEIC_L_KEY}
+        account-id: 7515923
+        step: 30s
+        event-type: SpringBootSample
+        client-provider-type: INSIGHTS_API
+        # uri:
+
+#  FROM SpringBootSample
+#  SELECT average(value)
+#  WHERE `id` = 'Compressed Class Space'
+#  AND `metricName` = 'jvmMemoryMax'
+#  TIMESERIES
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"

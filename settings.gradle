@@ -5,3 +5,5 @@ include '00-sample'
 include '01-grpc-core'
 include '02-grpc-client'
 include '03-grpc-server'
+include '04-Api-Version'
+
