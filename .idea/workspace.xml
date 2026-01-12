@@ -5,42 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94ddd660-eff9-47c9-8eb6-b8eccd92830a" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/00-sample/Spring-boot-4.x.00-sample.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/04-grpc-web-server/Spring-boot-4.x.04-grpc-web-server.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/05-Api-Version/Spring-boot-4.x.05-Api-Version.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/GrpcWebServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/grpc/server/GrpcServerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/grpc/server/UnifiedSecurityInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/test/java/com/example/demo/GrpcServerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02-grpc-client/spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/spring-configuration-metadata.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/00-sample/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-grpc-core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/01-grpc-core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01-grpc-core/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/01-grpc-core/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-grpc-client/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/02-grpc-client/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/03-grpc-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/03-grpc-server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/ApiVersionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/ApiVersionApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiHeaderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/ApiHeaderConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiMediaTypeParameterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/ApiMediaTypeParameterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiPathSegmentConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/ApiPathSegmentConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiQueryParamConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/ApiQueryParamConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiVersionResolverConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/ApiVersionResolverConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/MyBeanRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/config/MyBeanRegistrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/controller/RestServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/controller/RestServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/dto/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/dto/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/rest/CarClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/java/com/example/demo/rest/CarClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/05-Api-Version/src/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-grpc-client/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/02-grpc-client/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-grpc-web-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +154,10 @@
       <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4\02-grpc-client\src\main\java\com\example\service\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new\04-grpc-web-server" />
+      <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new\04-grpc-web-server\src\main\resources" />
+      <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new\02-grpc-client" />
+      <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new\03-grpc-server\src\main\resources" />
       <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -192,7 +166,7 @@
       <recent name="com.example.proto" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun]">
+  <component name="RunManager" selected="Gradle.SpringBoot-4:02-grpc-client [bootRun]">
     <configuration name="SpringBoot-4-new:03-grpc-server [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -305,9 +279,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SpringBoot-4:02-grpc-client [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:03-grpc-server [bootRun]" />
-        <item itemvalue="Gradle.SpringBoot-4:02-grpc-client [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:05-Api-Version [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:04-Api-Version [bootRun]" />
       </list>
@@ -409,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768200112675</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <option name="closed" value="true" />
+      <created>1768204934966</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768204934966</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

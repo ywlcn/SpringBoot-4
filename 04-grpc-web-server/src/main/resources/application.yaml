@@ -2,9 +2,14 @@ debug: true
 spring:
   application:
     name: 04-grpc-web-server
+  grpc:
+    server:
+      path: /grpc-api
 
 server:
   port: 8004
+  http2:
+    enabled: true
 
 management:
   endpoints:

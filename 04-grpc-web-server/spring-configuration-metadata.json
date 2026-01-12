@@ -1,0 +1,247 @@
+{
+  "groups": [
+    {
+      "name": "spring.grpc.server",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties"
+    },
+    {
+      "name": "spring.grpc.server.health",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Health",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "sourceMethod": "getHealth()"
+    },
+    {
+      "name": "spring.grpc.server.health.actuator",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Health",
+      "sourceMethod": "getActuator()"
+    },
+    {
+      "name": "spring.grpc.server.inprocess",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Inprocess",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "sourceMethod": "getInprocess()"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "sourceMethod": "getKeepAlive()"
+    },
+    {
+      "name": "spring.grpc.server.ssl",
+      "type": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Ssl",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "sourceMethod": "getSsl()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.grpc.server.address",
+      "type": "java.lang.String",
+      "description": "The address to bind to in the form 'host:port' or a pseudo URL like 'static:\/\/host:port'. When the address is set it takes precedence over any configured host\/port values.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties"
+    },
+    {
+      "name": "spring.grpc.server.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable server autoconfiguration.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.exception-handling.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable user-defined global exception handling on the gRPC server.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.health.actuator.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to adapt Actuator health indicators into gRPC health checks.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.health.actuator.health-indicator-paths",
+      "type": "java.util.List<java.lang.String>",
+      "description": "List of Actuator health indicator paths to adapt into gRPC health checks.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator"
+    },
+    {
+      "name": "spring.grpc.server.health.actuator.update-initial-delay",
+      "type": "java.time.Duration",
+      "description": "The initial delay before updating the health status the very first time.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator",
+      "defaultValue": "5s"
+    },
+    {
+      "name": "spring.grpc.server.health.actuator.update-overall-health",
+      "type": "java.lang.Boolean",
+      "description": "Whether to update the overall gRPC server health (the '' service) with the aggregate status of the configured health indicators.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.health.actuator.update-rate",
+      "type": "java.time.Duration",
+      "description": "How often to update the health status.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Actuator",
+      "defaultValue": "5s"
+    },
+    {
+      "name": "spring.grpc.server.health.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to auto-configure Health feature on the gRPC server.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Health",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.host",
+      "type": "java.lang.String",
+      "description": "Server host to bind to. The default is any IP address ('*').",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "defaultValue": "*"
+    },
+    {
+      "name": "spring.grpc.server.inprocess.exclusive",
+      "type": "java.lang.Boolean",
+      "description": "Whether the inprocess server factory should be the only server factory available. When the value is true, no other server factory will be configured.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.inprocess.name",
+      "type": "java.lang.String",
+      "description": "The name of the in-process server or null to not start the in-process server.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Inprocess"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.max-age",
+      "type": "java.time.Duration",
+      "description": "Maximum time a connection may exist before being gracefully terminated (default infinite).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.max-age-grace",
+      "type": "java.time.Duration",
+      "description": "Maximum time for graceful connection termination (default infinite).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.max-idle",
+      "type": "java.time.Duration",
+      "description": "Maximum time a connection can remain idle before being gracefully terminated (default infinite).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.permit-time",
+      "type": "java.time.Duration",
+      "description": "Maximum keep-alive time clients are permitted to configure (default 5m).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive",
+      "defaultValue": "5m"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.permit-without-calls",
+      "type": "java.lang.Boolean",
+      "description": "Whether clients are permitted to send keep alive pings when there are no outstanding RPCs on the connection (default false).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.time",
+      "type": "java.time.Duration",
+      "description": "Duration without read activity before sending a keep alive ping (default 2h).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive",
+      "defaultValue": "2h"
+    },
+    {
+      "name": "spring.grpc.server.keep-alive.timeout",
+      "type": "java.time.Duration",
+      "description": "Maximum time to wait for read activity after sending a keep alive ping. If sender does not receive an acknowledgment within this time, it will close the connection (default 20s).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$KeepAlive",
+      "defaultValue": "20s"
+    },
+    {
+      "name": "spring.grpc.server.max-inbound-message-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Maximum message size allowed to be received by the server (default 4MiB).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "defaultValue": "4194304B"
+    },
+    {
+      "name": "spring.grpc.server.max-inbound-metadata-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Maximum metadata size allowed to be received by the server (default 8KiB).",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "defaultValue": "8192B"
+    },
+    {
+      "name": "spring.grpc.server.observation.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable Observations on the server.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.port",
+      "type": "java.lang.Integer",
+      "description": "Server port to listen on. When the value is 0, a random available port is selected.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "defaultValue": "9090"
+    },
+    {
+      "name": "spring.grpc.server.reflection.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable Reflection on the gRPC server.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.security.csrf.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable CSRF protection on gRPC requests.",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.grpc.server.servlet.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to use a servlet server in a servlet-based web application. When the value is false, a native gRPC server will be created as long as one is available, and it will listen on its own port. Should only be needed if the GrpcServlet is on the classpath",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.server.shutdown-grace-period",
+      "type": "java.time.Duration",
+      "description": "Maximum time to wait for the server to gracefully shutdown. When the value is negative, the server waits forever. When the value is 0, the server will force shutdown immediately. The default is 30 seconds.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties",
+      "defaultValue": "30s"
+    },
+    {
+      "name": "spring.grpc.server.ssl.bundle",
+      "type": "java.lang.String",
+      "description": "SSL bundle name. Should match a bundle configured in spring.ssl.bundle.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Ssl"
+    },
+    {
+      "name": "spring.grpc.server.ssl.client-auth",
+      "type": "io.grpc.TlsServerCredentials$ClientAuth",
+      "description": "Client authentication mode.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Ssl",
+      "defaultValue": "none"
+    },
+    {
+      "name": "spring.grpc.server.ssl.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable SSL support.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Ssl"
+    },
+    {
+      "name": "spring.grpc.server.ssl.secure",
+      "type": "java.lang.Boolean",
+      "description": "Flag to indicate that client authentication is secure (i.e. certificates are checked). Do not set this to false in production.",
+      "sourceType": "org.springframework.boot.grpc.server.autoconfigure.GrpcServerProperties$Ssl",
+      "defaultValue": true
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}

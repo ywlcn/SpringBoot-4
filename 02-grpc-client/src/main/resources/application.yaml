@@ -11,7 +11,7 @@ spring:
 #            enabled: true
 #            service-name: grpc.health.v1.Health
           address: "static://localhost:8003"
-          plaintext: true  # ← これが重要です
+          negotiation-type: plaintext
 
 
 

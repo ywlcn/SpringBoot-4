@@ -1,0 +1,189 @@
+{
+  "groups": [
+    {
+      "name": "spring.grpc.client",
+      "type": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties"
+    },
+    {
+      "name": "spring.grpc.client.default-channel",
+      "type": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties",
+      "sourceMethod": "getDefaultChannel()"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.health",
+      "type": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Health",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "sourceMethod": "getHealth()"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.ssl",
+      "type": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Ssl",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "sourceMethod": "getSsl()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.grpc.client.channels",
+      "type": "java.util.Map<java.lang.String,org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig>",
+      "description": "Map of channels configured by name.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.address",
+      "type": "java.lang.String",
+      "description": "The target address uri to connect to.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "static:\/\/localhost:9090"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.default-deadline",
+      "type": "java.time.Duration",
+      "description": "The default deadline for RPCs performed on this channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.default-load-balancing-policy",
+      "type": "java.lang.String",
+      "description": "The load balancing policy the channel should use.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "round_robin"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.enable-keep-alive",
+      "type": "java.lang.Boolean",
+      "description": "Whether keep alive is enabled on the channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.grpc.client.default-channel.health.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable client-side health check for the channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Health",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.grpc.client.default-channel.health.service-name",
+      "type": "java.lang.String",
+      "description": "Name of the service to check health on.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Health"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.idle-timeout",
+      "type": "java.time.Duration",
+      "description": "The duration without ongoing RPCs before going to idle mode.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "20s"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.keep-alive-time",
+      "type": "java.time.Duration",
+      "description": "The delay before sending a keepAlive. Note that shorter intervals increase the network burden for the server and this value can not be lower than 'permitKeepAliveTime' on the server.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "5m"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.keep-alive-timeout",
+      "type": "java.time.Duration",
+      "description": "The default timeout for a keepAlives ping request.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "20s"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.keep-alive-without-calls",
+      "type": "java.lang.Boolean",
+      "description": "Whether a keepAlive will be performed when there are no outstanding RPC on a connection.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.grpc.client.default-channel.max-inbound-message-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Maximum message size allowed to be received by the channel (default 4MiB). Set to '-1' to use the highest possible limit (not recommended).",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "4194304B"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.max-inbound-metadata-size",
+      "type": "org.springframework.util.unit.DataSize",
+      "description": "Maximum metadata size allowed to be received by the channel (default 8KiB). Set to '-1' to use the highest possible limit (not recommended).",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "8192B"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.negotiation-type",
+      "type": "org.springframework.grpc.client.NegotiationType",
+      "description": "The negotiation type for the channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": "plaintext"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.secure",
+      "type": "java.lang.Boolean",
+      "description": "Flag to say that strict SSL checks are not enabled (so the remote certificate could be anonymous).",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.client.default-channel.service-config",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "description": "Map representation of the service config to use for the channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.ssl.bundle",
+      "type": "java.lang.String",
+      "description": "SSL bundle name.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Ssl"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.ssl.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable SSL support. Enabled automatically if \"bundle\" is provided unless specified otherwise.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig$Ssl"
+    },
+    {
+      "name": "spring.grpc.client.default-channel.user-agent",
+      "type": "java.lang.String",
+      "description": "The custom User-Agent for the channel.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties$ChannelConfig"
+    },
+    {
+      "name": "spring.grpc.client.default-stub-factory",
+      "type": "java.lang.Class<? extends org.springframework.grpc.client.StubFactory<?>>",
+      "description": "Default stub factory to use for all channels.",
+      "sourceType": "org.springframework.boot.grpc.client.autoconfigure.GrpcClientProperties"
+    },
+    {
+      "name": "spring.grpc.client.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable client autoconfiguration.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.client.inprocess.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to configure the in-process channel factory.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.client.inprocess.exclusive",
+      "type": "java.lang.Boolean",
+      "description": "Whether the inprocess channel factory should be the only channel factory available. When the value is true, no other channel factory will be configured.",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.grpc.client.observation.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable Observations on the client.",
+      "defaultValue": true
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}

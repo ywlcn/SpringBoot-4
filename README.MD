@@ -110,11 +110,17 @@ https://spring.io/blog/2025/09/16/api-versioning-in-spring
 | **REST 標準**            | 低       | 中        | 高         | 極高           |
 | **ブラウザからアクセス** | 極易     | 容易      | 難         | 極難           |
 
-### 1.3 webclient
+### 1.4 webclient
+
+????
 
 
 
-### 1.X OpenTelemetry スターターの新設
+
+
+
+
+### 1.5 OpenTelemetry スターターの新設
 
 `spring-boot-starter-opentelemetry` が新たに追加された。
 OTLP 形式でのメトリクス・トレース送信、OpenTelemetry SDK の自動設定を行う。
@@ -126,7 +132,7 @@ org.springframework.boot:spring-boot-opentelemetry
 
 
 
-### 1.X JMS：新しい JmsClient API のサポート
+### 1.6 JMS：新しい JmsClient API のサポート
 
 JMS の自動構成において、新しい **JmsClient API** のサポートが追加された。
 既存の `JmsTemplate` などはそのまま利用できる。
@@ -137,16 +143,21 @@ JMS の自動構成において、新しい **JmsClient API** のサポートが
 
 https://github.com/spring-projects/spring-grpc/tree/main
 
+https://docs.spring.io/spring-grpc/reference/index.html
+
 ### 2.1 starter
 
 - クライアント
   - spring-grpc-client-spring-boot-starter
 - サーバ
-  - spring-grpc-server-web-spring-boot-starter
+  - spring-grpc-server-web-spring-boot-starter（共存）
     - spring.grpc.server.servlet.enabled=false　　　　　grpc-servlet-jakarta
     - Servlet Server　　https://docs.spring.io/spring-grpc/reference/server.html#_servlet_server
-  - spring-grpc-server-spring-boot-starter
+    - gRPC はServlet容器で実施される　　同じPortでHttp　grpcとも対応できる
+  - spring-grpc-server-spring-boot-starter（独立）
     - Netty Server　　　https://docs.spring.io/spring-grpc/reference/server.html#_netty_server
+    - gRPC-over-HTTP/2　のみ
+    - `spring-boot-starter-web`，を入れると、Servlet Serverも起動する。（ 8080 ： REST，9090： gRPC）。
 - All-in-one
   - spring-grpc-spring-boot-starter
     - spring-grpc-client-spring-boot-starter
@@ -181,12 +192,64 @@ $ grpcurl -plaintext -d "{\"name\":\"Java\"}" localhost:8003 Simple.SayHello
 
 
 
-https://ik.am/entries/850
 
 
 
-### 区別
 
-[spring-grpc-server-web-spring-boot-starter](https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-web-spring-boot-starter)
+https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-spring-boot-starter)
 
-[spring-grpc-server-spring-boot-starter](https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-spring-boot-starter)
+
+
+
+
+### 2.2 クライアント機能
+
+- spring.grpc.client.channels.local.address=0.0.0.0:9090  　ほかいろいろな設定
+
+  ```java
+  @Bean
+  SimpleGrpc.SimpleBlockingStub stub(GrpcChannelFactory channels) {
+  	return SimpleGrpc.newBlockingStub(channels.createChannel("local"));
+  }
+  
+  @Bean
+  SimpleGrpc.SimpleBlockingStub stub(GrpcChannelFactory channels) {
+  	return SimpleGrpc.newBlockingStub(channels.createChannel("0.0.0.0:9090"));
+  }
+  ```
+
+  ```java
+  @Component
+  public class HelloRepositoryImpl implements HelloRepository {
+  
+      @Autowired
+      SimpleGrpc.SimpleBlockingStub stub;
+  
+      @Override
+      public HelloRepositoryOutDto sayHello(HelloRepositoryInDto inDto) {
+          HelloWorldProto.HelloRequest request = mapper.mapToProto(inDto);
+          HelloWorldProto.HelloReply response = stub.sayHello(request);
+          return mapper.mapToDto(response);
+      }
+  }
+  ```
+
+  
+
+
+
+- Channel Config
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 2.3サーバ機能
