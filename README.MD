@@ -98,67 +98,23 @@ https://spring.io/blog/2025/09/16/api-versioning-in-spring
   - request-header-based (e.g. \*X-API-Version: 1* vs. \*X-API-Version: 2*)
   - query-parameter-based (e.g. \*/hello?version=1* vs. \*/hello?version=2*)
   - mediatype-header-based (e.g. \*Accept: application/json; version=1* vs. \*Accept: application/json; version=2*)
+- カスタマイズ
 
-- サンプル例：path-based mapping
+```
+ソースコード
+```
 
-    - Client Support
-
-      ```Java
-      RestClient client = RestClient.builder()
-            .baseUrl("http://localhost:8080")
-            .apiVersionInserter(ApiVersionInserter.useHeader("API-Version"))
-            .build();
-
-      Account account = client.get().uri("/accounts/1")
-            .apiVersion(1.1)
-            .retrieve()
-            .body(Account.class);
-      ```
-      
-    - Server
-    
-      ```java
-        @Configuration
-        public class ApiConfig implements WebMvcConfigurer {
-        
-            @Override
-            public void configureApiVersioning(ApiVersionConfigurer configurer) {
-                configurer.usePathSegment(1);
-            }
-        
-            @Override
-            public void configurePathMatch(PathMatchConfigurer configurer) {
-                configurer.addPathPrefix("/api/v{version}", HandlerTypePredicate.forAnnotation(RestController.class));
-            }
-        
-        }
-      
-      @Configuration
-        public class WebConfiguration implements WebMvcConfigurer {
-          @Override
-          public void configureApiVersioning(ApiVersionConfigurer configurer) {
-              configurer.useRequestHeader("API-Version");
-          }
-        }
-      
-        @HttpExchange("/accounts")
-        public interface AccountService {
-      
-          @GetExchange(url = "/{id}", version = "1.1")
-          Account getAccount(@PathVariable int id);
-      
-        }
-      ```
-    
-      
-
-
-
-
-
-
+|                          | **Path** | **Query** | **Header** | **Media Type** |
+| ------------------------ | -------- | --------- | ---------- | -------------- |
+| **可視性**               | 極高     | 高        | 低         | 極低           |
+| **REST 標準**            | 低       | 中        | 高         | 極高           |
+| **ブラウザからアクセス** | 極易     | 容易      | 難         | 極難           |
 
 ### 1.3 webclient
+
+
+
+
 
 
 

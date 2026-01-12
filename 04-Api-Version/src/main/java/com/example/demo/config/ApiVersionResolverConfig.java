@@ -22,7 +22,6 @@ public class ApiVersionResolverConfig implements WebMvcConfigurer , CommandLineR
     @Override
     public void configureApiVersioning(ApiVersionConfigurer configurer) {
         configurer.useVersionResolver(new MyApiVersionResolver(API_VERSION_HEADER_NAME));
-
     }
 
 
@@ -53,7 +52,6 @@ public class ApiVersionResolverConfig implements WebMvcConfigurer , CommandLineR
     public class MyApiVersionResolver implements ApiVersionResolver {
 
         private final String headerName;
-
 
         public MyApiVersionResolver(String headerName) {
             this.headerName = headerName;

@@ -46,13 +46,13 @@ public class ApiPathSegmentConfig implements WebMvcConfigurer, CommandLineRunner
                 .retrieve()
                 .body(Car.class);
 
-        System.out.println("return from server:" + car.getName());
+        System.out.println("[PathSegment]return from server:" + car.getName());
 
         car = client.get().uri("/api/1.2/server/car")
                 .retrieve()
                 .body(Car.class);
 
-        System.out.println("return from server:" + car.getName());
+        System.out.println("[PathSegment]return from server:" + car.getName());
 
     }
 

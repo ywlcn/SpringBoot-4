@@ -4,8 +4,8 @@ server:
   port: 8004
 
 api:
-#  type: Header
-  type: MediaTypeParameter
+  type: Header
+#  type: MediaTypeParameter
 #  type: PathSegment
 #  type: QueryParam
 #  type: VersionResolver

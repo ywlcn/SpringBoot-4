@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ConditionalOnProperty(prefix = "api", name = "type", havingValue = "MediaTypeParameter")
 public class ApiMediaTypeParameterConfig implements WebMvcConfigurer , CommandLineRunner {
 
-    public static final String API_VERSION_MEDIA_TYPE_NAME = "API-Version";
+    public static final String API_VERSION_MEDIA_TYPE_NAME = "v";
 
 
     @Value("${server.port}")
@@ -25,11 +25,10 @@ public class ApiMediaTypeParameterConfig implements WebMvcConfigurer , CommandLi
     // Header より ないとNG
     @Override
     public void configureApiVersioning(ApiVersionConfigurer configurer) {
+
         configurer.useMediaTypeParameter(MediaType.APPLICATION_JSON , API_VERSION_MEDIA_TYPE_NAME);
-//        public ApiVersionConfigurer useMediaTypeParameter(MediaType compatibleMediaType, String paramName) {
-//            this.versionResolvers.add(new MediaTypeParamApiVersionResolver(compatibleMediaType, paramName));
-//            return this;
-//        }
+        configurer.setDefaultVersion("1.1");
+        configurer.setVersionRequired(false);
     }
 
 
@@ -42,19 +41,25 @@ public class ApiMediaTypeParameterConfig implements WebMvcConfigurer , CommandLi
                 .build();
 
         Car car = client.get().uri("/server/car")
-                .apiVersion(1.1)
+                .header("Accept", "application/json;v=1.1")
                 .retrieve()
                 .body(Car.class);
 
         System.out.println("return from server:" + car.getName());
 
         car = client.get().uri("/server/car")
-                .apiVersion(1.2)
+                .header("Accept", "application/json;v=1.2")
                 .retrieve()
                 .body(Car.class);
 
-        System.out.println("return from server:" + car.getName());
+        System.out.println("[MediaTypeParameter]return from server:" + car.getName());
 
+
+        car = client.get().uri("/server/car")
+                .retrieve()
+                .body(Car.class);
+
+        System.out.println("[MediaTypeParameter]return from server:" + car.getName());
 
     }
 

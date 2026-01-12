@@ -21,4 +21,17 @@ public class RestServerController {
         return new Car("1.2");
     }
 
+
+    @GetMapping(path = "car", produces = "application/json;v=1.1")
+    public Car getCar11() {
+//        System.out.println("1.1 called");
+        return new Car("1.1");
+    }
+
+    @GetMapping(path = "car", produces = "application/json;v=1.2")
+    public Car getCar22() {
+//        System.out.println("1.2 called");
+        return new Car("1.2");
+    }
+
 }

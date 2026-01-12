@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94ddd660-eff9-47c9-8eb6-b8eccd92830a" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/ApiVersionApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiHeaderConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiMediaTypeParameterConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiPathSegmentConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiQueryParamConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiVersionResolverConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/MyBeanRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/controller/RestServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/dto/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/rest/CarClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00-sample/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiHeaderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiHeaderConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiMediaTypeParameterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiMediaTypeParameterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiPathSegmentConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiPathSegmentConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiQueryParamConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiQueryParamConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiVersionResolverConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/config/ApiVersionResolverConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/controller/RestServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/java/com/example/demo/controller/RestServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-Api-Version/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/04-Api-Version/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +107,6 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -347,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768048670939</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1768088989411</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768088989411</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
