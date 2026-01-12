@@ -31,7 +31,8 @@ dependencyManagement {
 dependencies {
 
 	api "io.grpc:grpc-services"
-	api "org.springframework.grpc:spring-grpc-server-web-spring-boot-starter"
+	api "org.springframework.grpc:spring-grpc-core"
+
 
 	// 単体テスト
 	testImplementation "org.springframework.grpc:spring-grpc-test"

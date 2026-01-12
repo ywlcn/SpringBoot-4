@@ -15,7 +15,8 @@
             <option value="$PROJECT_DIR$/01-grpc-core" />
             <option value="$PROJECT_DIR$/02-grpc-client" />
             <option value="$PROJECT_DIR$/03-grpc-server" />
-            <option value="$PROJECT_DIR$/04-Api-Version" />
+            <option value="$PROJECT_DIR$/04-grpc-web-server" />
+            <option value="$PROJECT_DIR$/05-Api-Version" />
           </set>
         </option>
       </GradleProjectSettings>

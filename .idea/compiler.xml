@@ -10,10 +10,11 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.2.Final/74a21679400fceb1f98987926cea1786c0e39e77/mapstruct-processor-1.5.2.Final.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/4.0.1/a6d77ad038728f5497b218458a0c99c50a19b605/spring-boot-configuration-processor-4.0.1.jar" />
         </processorPath>
+        <module name="Spring-boot-4.x.05-Api-Version.main" />
         <module name="Spring-boot-4.x.00-sample.main" />
         <module name="Spring-boot-4.x.01-grpc-core.main" />
         <module name="Spring-boot-4.x.03-grpc-server.main" />
-        <module name="Spring-boot-4.x.04-Api-Version.main" />
+        <module name="Spring-boot-4.x.04-grpc-web-server.main" />
         <module name="Spring-boot-4.x.02-grpc-client.main" />
       </profile>
     </annotationProcessing>
@@ -36,6 +37,12 @@
       <module name="Spring-boot-4.x.04-Api-Version" options="-parameters" />
       <module name="Spring-boot-4.x.04-Api-Version.main" options="-parameters" />
       <module name="Spring-boot-4.x.04-Api-Version.test" options="-parameters" />
+      <module name="Spring-boot-4.x.04-grpc-web-server" options="-parameters" />
+      <module name="Spring-boot-4.x.04-grpc-web-server.main" options="-parameters" />
+      <module name="Spring-boot-4.x.04-grpc-web-server.test" options="-parameters" />
+      <module name="Spring-boot-4.x.05-Api-Version" options="-parameters" />
+      <module name="Spring-boot-4.x.05-Api-Version.main" options="-parameters" />
+      <module name="Spring-boot-4.x.05-Api-Version.test" options="-parameters" />
     </option>
   </component>
 </project>

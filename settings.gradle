@@ -1,9 +1,9 @@
 rootProject.name = 'Spring-boot-4.x'
 
-
 include '00-sample'
 include '01-grpc-core'
 include '02-grpc-client'
 include '03-grpc-server'
-include '04-Api-Version'
+include '04-grpc-web-server'
+include '05-Api-Version'
 

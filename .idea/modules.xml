@@ -6,7 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/01-grpc-core/Spring-boot-4.x.01-grpc-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/01-grpc-core/Spring-boot-4.x.01-grpc-core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/02-grpc-client/Spring-boot-4.x.02-grpc-client.main.iml" filepath="$PROJECT_DIR$/.idea/modules/02-grpc-client/Spring-boot-4.x.02-grpc-client.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/03-grpc-server/Spring-boot-4.x.03-grpc-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/03-grpc-server/Spring-boot-4.x.03-grpc-server.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/04-Api-Version/Spring-boot-4.x.04-Api-Version.main.iml" filepath="$PROJECT_DIR$/.idea/modules/04-Api-Version/Spring-boot-4.x.04-Api-Version.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/04-grpc-web-server/Spring-boot-4.x.04-grpc-web-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/04-grpc-web-server/Spring-boot-4.x.04-grpc-web-server.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/05-Api-Version/Spring-boot-4.x.05-Api-Version.main.iml" filepath="$PROJECT_DIR$/.idea/modules/05-Api-Version/Spring-boot-4.x.05-Api-Version.main.iml" />
     </modules>
   </component>
 </project>

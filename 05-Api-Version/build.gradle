@@ -1,0 +1,16 @@
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+
+dependencies {
+
+    implementation "org.springframework.boot:spring-boot-starter-webclient"
+    implementation "org.springframework.boot:spring-boot-starter-webmvc"
+
+}
+
+
+

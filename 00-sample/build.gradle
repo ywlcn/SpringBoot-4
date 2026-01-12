@@ -6,6 +6,11 @@ description = 'Demo project for Spring Boot'
 
 
 dependencies {
+
+    implementation "org.springframework.boot:spring-boot-starter-webclient"
+    implementation "org.springframework.boot:spring-boot-starter-webmvc"
+
+
 //	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 //	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 //	implementation 'org.springframework.boot:spring-boot-starter-webclient'

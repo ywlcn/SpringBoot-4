@@ -114,49 +114,6 @@ https://spring.io/blog/2025/09/16/api-versioning-in-spring
 
 
 
-
-
-
-
-
-
-https://techfeed.io/entries/691f8bf33837533862edf005
-
-
-
-### RestTestClient の追加   ???
-
-以下で新しい **RestTestClient** が利用可能になった。
-
-- `@SpringBootTest`（MockMvc ベース）
-- `@AutoConfigureMockMvc`
-- 統合テスト（定義ポートまたはランダムポート）
-
-
-
-
-
-### HTTP Service Clients の自動構成   ???
-
-**HTTP Service Clients** を利用したインターフェース定義が自動構成でサポートされた。
-Java インターフェースにアノテーションを付与するだけで実装が生成される。
-
-```java
-@HttpExchange(url = "https://echo.zuplo.io")
-public interface EchoService {
-
-    @PostExchange
-    Map<?, ?> echo(@RequestBody Map<String, String> message);
-
-}
-```
-
-
-
-
-
-
-
 ### 1.X OpenTelemetry スターターの新設
 
 `spring-boot-starter-opentelemetry` が新たに追加された。
@@ -169,7 +126,7 @@ org.springframework.boot:spring-boot-opentelemetry
 
 
 
-### 1.X JMS：新しい JmsClient API のサポート   ???
+### 1.X JMS：新しい JmsClient API のサポート
 
 JMS の自動構成において、新しい **JmsClient API** のサポートが追加された。
 既存の `JmsTemplate` などはそのまま利用できる。
