@@ -70,9 +70,10 @@ subprojects {
 
 
 		// データベースの接続
-		implementation "com.mysql:mysql-connector-j"
+		//implementation "com.mysql:mysql-connector-j"
 		implementation "org.hibernate.orm:hibernate-core"
 		implementation "com.zaxxer:HikariCP"
+		implementation 'org.postgresql:postgresql'
 
 		// prometheus
 		runtimeOnly "io.micrometer:micrometer-registry-prometheus"

@@ -6,6 +6,7 @@ import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+//@SpringBootApplication()
 @ComponentScan(value = {"com.example"})
 public class GrpcWebServerApplication {
 

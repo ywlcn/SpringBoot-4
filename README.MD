@@ -169,24 +169,6 @@ https://docs.spring.io/spring-grpc/reference/index.html
 
 
 ```bat
-$ grpcurl -plaintext localhost:8003 list
-Simple
-grpc.health.v1.Health
-grpc.reflection.v1.ServerReflection
-
-$ grpcurl -plaintext localhost:8003 list Simple
-Simple.SayHello
-Simple.StreamHello
-
-$ grpcurl -plaintext localhost:8003 Simple.SayHello
-{
-  "message": "Hello ==\u003e "
-}
-
-$ grpcurl -plaintext -d "{\"name\":\"Java\"}" localhost:8003 Simple.SayHello
-{
-  "message": "Hello ==\u003e Java"
-}
 
 ```
 
@@ -204,7 +186,22 @@ https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-spri
 
 ### 2.2 クライアント機能
 
+#### 2.2.1 コンフィグ機能
+
 - spring.grpc.client.channels.local.address=0.0.0.0:9090  　ほかいろいろな設定
+
+  ```yaml
+  spring:
+    grpc:
+      client:
+        channels:
+          local:
+  #          health:
+  #            enabled: true
+  #            service-name: grpc.health.v1.Health
+            address: "static://localhost:8003"
+            negotiation-type: plaintext
+  ```
 
   ```java
   @Bean
@@ -212,6 +209,18 @@ https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-spri
   	return SimpleGrpc.newBlockingStub(channels.createChannel("local"));
   }
   
+  @Bean
+  @Order(100)
+  GrpcChannelBuilderCustomizer<NettyChannelBuilder> flowControlCustomizer() {
+      return (name, builder) -> builder.flowControlWindow(1024 * 1024);
+  }
+  
+  @Bean
+  @Order(200)
+  <T extends ManagedChannelBuilder<T>> GrpcChannelBuilderCustomizer<T> retryChannelCustomizer() {
+      return (name, builder) -> builder.enableRetry().maxRetryAttempts(5);
+  }
+  ///////////////////////////////////////  
   @Bean
   SimpleGrpc.SimpleBlockingStub stub(GrpcChannelFactory channels) {
   	return SimpleGrpc.newBlockingStub(channels.createChannel("0.0.0.0:9090"));
@@ -234,22 +243,269 @@ https://github.com/spring-projects/spring-grpc/tree/main/spring-grpc-server-spri
   }
   ```
 
+#### 2.2.2 インターセプト機能
+
+- Global
+
+  ```Java
+  @Bean
+  @Order(100)
+  @GlobalClientInterceptor
+  ClientInterceptor globalLoggingInterceptor() {
+      return new LoggingInterceptor();
+  }
   
+  @Bean
+  @Order(200)
+  @GlobalClientInterceptor
+  ClientInterceptor globalExtraThingsInterceptor() {
+      return new ExtraThingsInterceptor();
+  }
+  ```
+
+- Filtering
+
+  Globalのインターセプトに対して、一部適用しない場合
+
+  ```
+  TODO
+  ```
+
+- Per-Channel
+
+  特定のChannelのみ適用したい場合
+
+  ```java
+  @Bean
+  SimpleGrpc.SimpleBlockingStub stub(GrpcChannelFactory channelFactory) {
+      ClientInterceptor interceptor1 = getChannelInterceptor1();
+      ClientInterceptor interceptor2 = getChannelInterceptor2();
+      ChannelBuilderOptions options = ChannelBuilderOptions.defaults()
+              .withInterceptors(List.of(interceptor1, interceptor2));
+      ManagedChannel channel = channelFactory.createChannel("localhost", options);
+      return SimpleGrpc.newBlockingStub(channel);
+  }
+  ```
+
+#### 2.2.3 Observability
+
+```properties
+# HELP grpc_client_active_seconds  
+# TYPE grpc_client_active_seconds summary
+grpc_client_active_seconds_count{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0
+grpc_client_active_seconds_sum{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0
+# HELP grpc_client_active_seconds_max  
+# TYPE grpc_client_active_seconds_max gauge
+grpc_client_active_seconds_max{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0
+# HELP grpc_client_received_total  
+# TYPE grpc_client_received_total counter
+grpc_client_received_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 7.0
+# HELP grpc_client_seconds  
+# TYPE grpc_client_seconds summary
+grpc_client_seconds_count{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 7
+grpc_client_seconds_sum{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.5746595
+# HELP grpc_client_seconds_max  
+# TYPE grpc_client_seconds_max gauge
+grpc_client_seconds_max{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0154066
+# HELP grpc_client_sent_total  
+# TYPE grpc_client_sent_total counter
+grpc_client_sent_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="9090",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 7.0
+```
+
+#### 2.2.4 Security
+
+```
+
+```
+
+```
+
+```
 
 
 
-- Channel Config
+#### 2.2.5 Health
 
-
-
-
-
-
-
-
-
-
+- ```properties
+  spring:
+    grpc:
+      client:
+        default-channel:
+        health:
+          enabled: true
+        channels:
+          one:
+            health:
+              enabled: true
+              service-name: service-one
+              
+              
+              
+  grpcurl -plaintext -d '{"service": "Simple"}' localhost:9090 grpc.health.v1.Health/Check
+  ```
 
 
 
 ### 2.3サーバ機能
+
+#### 2.3.1 gRPCサーバ
+
+- spring-grpc-server-web-spring-boot-starter（共存）
+  - spring.grpc.server.servlet.enabled=false　　　　　grpc-servlet-jakarta
+  - Servlet Server　　https://docs.spring.io/spring-grpc/reference/server.html#_servlet_server
+  - gRPC はServlet容器で実施される　　同じPortでHttp　grpcとも対応できる
+- spring-grpc-server-spring-boot-starter（独立）
+  - Netty Server　　　https://docs.spring.io/spring-grpc/reference/server.html#_netty_server
+  - gRPC-over-HTTP/2　のみ
+  - `spring-boot-starter-web`，を入れると、Servlet Serverも起動する。（ 8080 ： REST，9090： gRPC）。
+
+#### 2.2.2 インターセプト機能
+
+- Global
+
+  ```Java
+  @Bean
+  @Order(100)
+  @GlobalServerInterceptor
+  ServerInterceptor myGlobalLoggingInterceptor() {
+      return new MyLoggingInterceptor();
+  }
+  ```
+
+- Filtering
+
+  Globalのインターセプトに対して、一部適用しない場合
+
+  ```
+  TODO
+  ```
+
+- Per-Channel
+
+  特定のServiceのみ適用したい場合
+
+  ```java
+  @Bean
+  MyServerInterceptor myServerInterceptor() {
+      return new MyServerInterceptor();
+  }
+  
+  @GrpcService(interceptors = MyServerInterceptor.class)
+  BindableService myService() {
+  	...
+  }
+  ```
+
+#### 2.2.3 Reflection
+
+```bash
+
+$ grpcurl -plaintext localhost:9090 list
+Simple
+grpc.health.v1.Health
+grpc.reflection.v1.ServerReflection
+
+$ grpcurl -plaintext localhost:9090 list Simple
+Simple.SayHello
+Simple.StreamHello
+
+$ grpcurl -plaintext localhost:9090 Simple.SayHello
+{
+  "message": "Hello ==\u003e "
+}
+
+$ grpcurl -plaintext -d "{\"name\":\"Java\"}" localhost:8003 Simple.SayHello
+{
+  "message": "Hello ==\u003e Java"
+}
+
+```
+
+#### 2.2.4 Health
+
+- ```properties
+  spring.grpc.server.health.enabled=true
+  ```
+
+- ```yml
+  spring:
+    grpc:
+      server:
+        health:
+          actuator:
+            health-indicator-paths:
+              - db
+              - redis
+  ```
+
+  grpcのヘルスチェックはdbなどのチェックする
+
+- grpcurl -plaintext localhost:9090 grpc.health.v1.Health.Check
+
+
+
+#### 2.2.5 Observability
+
+```json
+# HELP grpc_server_active_seconds  
+# TYPE grpc_server_active_seconds summary
+grpc_server_active_seconds_count{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0
+grpc_server_active_seconds_sum{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0
+grpc_server_active_seconds_count{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 0
+grpc_server_active_seconds_sum{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 0.0
+# HELP grpc_server_active_seconds_max  
+# TYPE grpc_server_active_seconds_max gauge
+grpc_server_active_seconds_max{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0
+grpc_server_active_seconds_max{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 0.0
+# HELP grpc_server_received_total  
+# TYPE grpc_server_received_total counter
+grpc_server_received_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 1.0
+grpc_server_received_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 2.0
+# HELP grpc_server_seconds  
+# TYPE grpc_server_seconds summary
+grpc_server_seconds_count{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 1
+grpc_server_seconds_sum{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0037934
+grpc_server_seconds_count{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 2
+grpc_server_seconds_sum{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 0.1547173
+# HELP grpc_server_seconds_max  
+# TYPE grpc_server_seconds_max gauge
+grpc_server_seconds_max{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 0.0037934
+grpc_server_seconds_max{error="none",grpc_status_code="OK",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 0.1383122
+# HELP grpc_server_sent_total  
+# TYPE grpc_server_sent_total counter
+grpc_server_sent_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="SayHello",rpc_service="Simple",rpc_type="UNARY"} 1.0
+grpc_server_sent_total{grpc_status_code="UNKNOWN",net_peer_name="localhost",net_peer_port="8004",rpc_method="ServerReflectionInfo",rpc_service="grpc.reflection.v1.ServerReflection",rpc_type="BIDI_STREAMING"} 2.0
+```
+
+#### 2.2.6 Exception Handling
+
+```
+
+```
+
+```
+
+```
+
+#### 2.2.7 Security
+
+```
+@Bean
+@GlobalServerInterceptor
+AuthenticationProcessInterceptor jwtSecurityFilterChain(GrpcSecurity grpc) throws Exception {
+	return grpc
+			.authorizeRequests(requests -> requests
+					.methods("Simple/StreamHello").hasAuthority("ROLE_ADMIN")
+					.methods("Simple/SayHello").hasAuthority("ROLE_USER")
+					.methods("grpc.*/*").permitAll()
+					.allRequests().denyAll())
+			.httpBasic(withDefaults())
+			.preauth(withDefaults())
+			.build();
+}
+```
+
+```
+
+```
+

@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94ddd660-eff9-47c9-8eb6-b8eccd92830a" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/02-grpc-client/spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02-grpc-client/src/main/java/com/example/interceptor/ExtraThingsInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02-grpc-client/src/main/java/com/example/interceptor/LoggingInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02-grpc-client/src/main/java/com/example/interceptor/MyClientInterceptorFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02-grpc-client/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/grpc/server/exception/GlobalGrpcExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02-grpc-client/src/main/java/com/example/config/GrpcClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/02-grpc-client/src/main/java/com/example/config/GrpcClientConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/02-grpc-client/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/02-grpc-client/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-grpc-web-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-grpc-server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/03-grpc-server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-grpc-server/src/main/java/com/example/GrpcServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/03-grpc-server/src/main/java/com/example/GrpcServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-grpc-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/03-grpc-server/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/GrpcWebServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/GrpcWebServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/grpc/server/GrpcServerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-grpc-web-server/src/main/java/com/example/grpc/server/GrpcServerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +62,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Spring-boot-4.x" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Spring-boot-4.x" type="f1a62948:ProjectNode" />
-                <item name="03-grpc-server" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -121,9 +126,10 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Gradle.Download Sources.executor": "Run",
+    "Gradle.SpringBoot-4-new:03-grpc-server [:03-grpc-server:com.example.GrpcServerApplication.main()].executor": "Run",
     "Gradle.SpringBoot-4-new:03-grpc-server [bootRun].executor": "Run",
     "Gradle.SpringBoot-4-new:04-Api-Version [bootRun].executor": "Run",
-    "Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun].executor": "Run",
+    "Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun].executor": "Debug",
     "Gradle.SpringBoot-4-new:05-Api-Version [bootRun].executor": "Run",
     "Gradle.SpringBoot-4:00-sample [bootRun].executor": "Run",
     "Gradle.SpringBoot-4:01-grpc-core [bootRun].executor": "Run",
@@ -139,7 +145,7 @@
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "F:/VSWorkSpace/000-SpringBoot3.0/SpringBoot-4-new",
+    "last_opened_file_path": "F:/VSWorkSpace/000-SpringBoot3.0/SpringBoot-4-new/02-grpc-client/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -148,6 +154,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new\02-grpc-client\src\main\resources" />
       <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4-new" />
       <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4\99-Server\prometheus" />
       <recent name="F:\VSWorkSpace\000-SpringBoot3.0\SpringBoot-4\02-grpc-client\src\main\java\com\example\controller\dto" />
@@ -166,33 +173,24 @@
       <recent name="com.example.proto" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SpringBoot-4:02-grpc-client [bootRun]">
+  <component name="RunManager" selected="Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun]">
+    <configuration name="GrpcServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.GrpcServerApplication" />
+      <module name="Spring-boot-4.x.03-grpc-server.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringBoot-4-new:03-grpc-server [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/03-grpc-server" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="SpringBoot-4-new:04-Api-Version [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/04-Api-Version" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -279,11 +277,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SpringBoot-4:02-grpc-client [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:04-grpc-web-server [bootRun]" />
+        <item itemvalue="Gradle.SpringBoot-4:02-grpc-client [bootRun]" />
         <item itemvalue="Gradle.SpringBoot-4-new:03-grpc-server [bootRun]" />
+        <item itemvalue="Application.GrpcServerApplication" />
         <item itemvalue="Gradle.SpringBoot-4-new:05-Api-Version [bootRun]" />
-        <item itemvalue="Gradle.SpringBoot-4-new:04-Api-Version [bootRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -391,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768204934966</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update">
+      <option name="closed" value="true" />
+      <created>1768207660810</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768207660810</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,6 +435,16 @@
           <url>file://$PROJECT_DIR$/00-sample/src/main/java/com/example/demo/controller/TestRunner.java</url>
           <line>19</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.grpc/spring-grpc-core/1.0.0/800d9c68096e55ab6088c9c5b8d993b708a774c6/spring-grpc-core-1.0.0-sources.jar!/org/springframework/grpc/client/DefaultGrpcChannelFactory.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.grpc/spring-grpc-client-spring-boot-autoconfigure/1.0.0/5d0795674fbadaeb96b6b9c19551a88dd17f1640/spring-grpc-client-spring-boot-autoconfigure-1.0.0-sources.jar!/org/springframework/boot/grpc/client/autoconfigure/ClientPropertiesChannelBuilderCustomizer.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

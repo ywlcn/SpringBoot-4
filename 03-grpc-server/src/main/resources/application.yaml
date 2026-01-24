@@ -1,13 +1,31 @@
-debug: true
+#debug: true
 spring:
   application:
     name: 03-grpc-server
+
+  grpc:
+    server:
+      reflection:
+        enabled: true
+      health:
+        actuator:
+          health-indicator-paths:
+            - db
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres # ${DS_USER}
+    password: 123456 #${DS_PASSWORD}
+    sqlScriptEncoding: UTF-8
+    driverClassName: org.postgresql.Driver #${DS_CLASS}
 
 server:
   port: 8003
 
 management:
   endpoints:
+    health:
+      show-details: always # 这样你就能看到 "db" 是否真的在列表里
     web:
       exposure:
         include: "*"

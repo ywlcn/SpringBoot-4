@@ -10,4 +10,6 @@ dependencies {
 
 	implementation 'org.springframework.grpc:spring-grpc-server-spring-boot-starter'
 
+
+
 }

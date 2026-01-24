@@ -7,10 +7,10 @@ spring:
     client:
       channels:
         local:
-#          health:
-#            enabled: true
-#            service-name: grpc.health.v1.Health
-          address: "static://localhost:8003"
+          health:
+            enabled: true
+#            service-name: "Simple" #    就是不行。。。。
+          address: "static://localhost:9090"
           negotiation-type: plaintext
 
 
