@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @SpringBootApplication()
-@ComponentScan(value = {"com.example.grpc.core", "com.example.grpc.server"})
+@ComponentScan(value = {"com.example.grpc.core", "com.example.grpc.server", "com.example.grpc.security"})
 public class GrpcServerApplication {
 
     public static void main(String[] args) {

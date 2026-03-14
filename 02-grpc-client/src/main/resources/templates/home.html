@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - gRPC Admin</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; line-height: 1.6; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+        .card { border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; border-radius: 5px; }
+        .btn-logout { color: #fff; background-color: #dc3545; padding: 5px 10px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>gRPC Management Console</h1>
+    <div>
+        <span>Welcome, <strong th:text="${username}">User</strong>!</span>
+        <form th:action="@{/logout}" method="post" style="display: inline; margin-left: 10px;">
+            <button type="submit" class="btn-logout">Logout</button>
+        </form>
+    </div>
+</div>
+
+<!--<div class="card">-->
+<!--    <h3>Service Status</h3>-->
+<!--    <ul>-->
+<!--        <li>User Service: <span style="color: green;">ONLINE (SERVING)</span></li>-->
+<!--        <li>Order Service: <span style="color: green;">ONLINE (SERVING)</span></li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<div class="card">
+    <h3>Quick Actions</h3>
+    <p><strong th:text="${message}">User</strong></p>
+</div>
+
+</body>
+</html>

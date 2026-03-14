@@ -48,3 +48,11 @@ management:
     web:
       exposure:
         include: "*"
+
+
+logging:
+  level:
+#    org.springframework.security: DEBUG
+    # さらに認証の詳細を知りたい場合は以下を個別に指定
+    org.springframework.security.authentication: DEBUG
+#    org.springframework.security.userdetails: DEBUG

@@ -32,6 +32,7 @@ dependencies {
 
 	api "io.grpc:grpc-services"
 	api "org.springframework.grpc:spring-grpc-core"
+	api 'org.springframework.boot:spring-boot-starter-security'
 
 
 	// 単体テスト

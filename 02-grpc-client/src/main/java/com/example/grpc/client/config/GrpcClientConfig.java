@@ -13,12 +13,15 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
 import org.springframework.grpc.client.*;
 import org.springframework.grpc.client.interceptor.security.BasicAuthenticationInterceptor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
+import java.util.Objects;
 
 @Configuration
-@ImportGrpcClients(target = "local" ,types = {SampleGrpc.SampleBlockingStub.class},
-                   basePackages = "com.example.grpc.client.repository")
+@ImportGrpcClients(target = "local", types = {SampleGrpc.SampleBlockingStub.class},
+        basePackages = "com.example.grpc.client.repository")
 public class GrpcClientConfig {
 
 //    @Bean
@@ -42,7 +45,6 @@ public class GrpcClientConfig {
     <T extends ManagedChannelBuilder<T>> GrpcChannelBuilderCustomizer<T> retryChannelCustomizer() {
         return (name, builder) -> builder.enableRetry().maxRetryAttempts(5);
     }
-
 
     ///    リクエスト：　　LoggingInterceptor　　ー＞　　ExtraThingsInterceptor
     /// 　　レスポンス：　　ExtraThingsInterceptor　　ー＞　　LoggingInterceptor
@@ -90,5 +92,6 @@ public class GrpcClientConfig {
 //                .getTokenValue();
 //        return token;
 //    }
+
 
 }
