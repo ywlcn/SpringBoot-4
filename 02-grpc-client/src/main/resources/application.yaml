@@ -7,16 +7,16 @@ spring:
     client:
       channels:
         local:
-          health:
-            enabled: true
-#            service-name: "Simple" #    就是不行。。。。
-          address: "static://localhost:9090"
+#          health:
+#            enabled: true
+#            service-name: "Sample" #    サーバーの問題であり・・・
+#            service-name: "db"
+          address: "static://localhost:9003"
           negotiation-type: plaintext
-
-
 
 server:
   port: 8002
+#  port: 8080
 
 management:
   endpoints:

@@ -1,0 +1,10 @@
+<mapper namespace="com.example.grpc.core.repository.UserRepository">
+    <select id="findById" resultType="com.example.grpc.core.entity.UserEntity">
+        SELECT id, name, email FROM users WHERE id = #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO users (id, name, email)
+        VALUES (#{id}, #{name}, #{email})
+    </insert>
+</mapper>

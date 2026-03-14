@@ -1,17 +1,16 @@
-package com.example;
+package com.example.grpc.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@SpringBootApplication()
-@ComponentScan(value = {"com.example.grpc.core", "com.example.grpc.server"})
-public class GrpcServerApplication {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@ComponentScan(value = {"com.example.grpc.client"})
+public class GrpcClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GrpcServerApplication.class, args);
+        SpringApplication.run(GrpcClientApplication.class, args);
     }
 
 }

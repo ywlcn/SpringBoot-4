@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "com.example.grpc.core.proto";
+option java_outer_classname = "OrderServiceProto";
+
+// The greeting service definition.
+service OrderService {
+  rpc CreateOrder (Order) returns (Order);
+  rpc UpdateOrder (Order) returns (Order);
+  rpc DeleteOrder (Order) returns (Order);
+  rpc GetOrder (Order) returns (Order);
+  rpc ListOrdersByUser (ListOrdersRequest) returns (OrderList);
+}
+
+message Order {
+  string id = 1;
+  string user_id = 2;
+  repeated OrderItem items = 3;
+  double total_amount = 4;
+  string status = 5; // e.g., PENDING, SHIPPED, COMPLETED
+}
+
+message OrderItem {
+  string id = 1;
+  string order_id = 2;
+  string name = 3;
+  double price = 4;
+}
+
+message ListOrdersRequest {
+  string user_id = 1;
+  string id = 2;
+}
+
+message OrderList {
+  repeated Order orders = 1;
+}

@@ -13,7 +13,7 @@ public class TestRunner implements CommandLineRunner {
 
 
         RestClient client = RestClient.builder()
-                .baseUrl("http://localhost:8001")
+                .baseUrl("http://localhost:8080")
                 .apiVersionInserter(ApiVersionInserter.useHeader("API-Version"))
                 .build();
 
