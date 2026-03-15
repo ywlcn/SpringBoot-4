@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.grpc.core.repository.mapper.UserMapper">
+
+    <select id="findById" resultType="com.example.grpc.core.entity.UserEntity">
+        SELECT id, name, email , password , roles FROM users WHERE id = #{id}
+    </select>
+
+    <select id="findByName" resultType="com.example.grpc.core.entity.UserEntity">
+        SELECT id, name, email , password , roles FROM users WHERE name = #{name}
+    </select>
+
+    <select id="findAll" resultType="com.example.grpc.core.entity.UserEntity">
+        SELECT id, name, email , password , roles FROM users
+    </select>
+
+    <insert id="insert">
+        INSERT INTO users (id, name, email)
+        VALUES (#{id}, #{name}, #{email})
+    </insert>
+</mapper>

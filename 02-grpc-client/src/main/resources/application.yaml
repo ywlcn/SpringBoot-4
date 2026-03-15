@@ -1,3 +1,8 @@
+debug: true
+
+mybatis:
+  mapper-locations: classpath*:/mybatis/sqls/**/*.xml
+
 #debug: true
 spring:
   application:
@@ -13,6 +18,24 @@ spring:
 #            service-name: "db"
           address: "static://localhost:9003"
           negotiation-type: plaintext
+
+  datasource:
+    #    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    #    url: jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=1;DB_CLOSE_ON_EXIT=FALSE;MODE=DB2
+    username: sa
+    password:
+    initialize: true
+  sql:
+    init:
+      platform: h2
+  #      schema-locations:
+  #      data-locations:
+  h2:
+    console:
+      # enable access from http://localhost:8080/h2-console
+      enabled: true
 
 server:
   port: 8002

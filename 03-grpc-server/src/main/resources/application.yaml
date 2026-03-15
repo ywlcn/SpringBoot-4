@@ -1,4 +1,7 @@
 
+mybatis:
+  mapper-locations: classpath*:/mybatis/sqls/**/*.xml
+
 spring:
   application:
     name: 03-grpc-server

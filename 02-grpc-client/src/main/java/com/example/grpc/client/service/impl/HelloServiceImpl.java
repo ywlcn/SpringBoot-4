@@ -18,8 +18,13 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public HelloServiceOutDto sayHello(HelloServiceInDto inDto) {
         HelloRepositoryInDto repositoryInDto = mapper.mapToDto(inDto);
+        HelloRepositoryOutDto response = new HelloRepositoryOutDto();
+        try{
+            response = helloRepository.sayHello(repositoryInDto);
+        }catch (Exception e){
+            response.setMessage(e.getMessage());
+        }
 
-        HelloRepositoryOutDto response = helloRepository.sayHello(repositoryInDto);
         return mapper.mapToDto(response);
     }
 

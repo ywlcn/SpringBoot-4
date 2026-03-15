@@ -1,7 +1,7 @@
-insert into users(id, name, email) values('001', 'Name001' , 'test001@sapmle.com');
-insert into users(id, name, email) values('002', 'Name002' , 'test002@sapmle.com');
-insert into users(id, name, email) values('003', 'Name003' , 'test003@sapmle.com');
-insert into users(id, name, email) values('004', 'Name004' , 'test004@sapmle.com');
+insert into users(id, name, email , password , roles) values('001', 'user1' , 'test001@sapmle.com' , 'password' , 'USER' );
+insert into users(id, name, email , password , roles) values('002', 'user2' , 'test002@sapmle.com' , 'password' , 'USER' );
+insert into users(id, name, email , password , roles) values('003', 'user3' , 'test003@sapmle.com' , 'password' , 'USER' );
+insert into users(id, name, email , password , roles) values('004', 'admin' , 'test004@sapmle.com' , 'password' , 'ADMIN' );
 
 insert into orders(id, user_id, total_amount , status) values(1,'001', 432000 , 'created');
 

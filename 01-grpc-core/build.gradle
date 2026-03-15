@@ -34,6 +34,11 @@ dependencies {
 	api "org.springframework.grpc:spring-grpc-core"
 	api 'org.springframework.boot:spring-boot-starter-security'
 
+	api 'io.jsonwebtoken:jjwt-api:0.11.5'
+	api 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	api 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	api("org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.1")
 
 	// 単体テスト
 	testImplementation "org.springframework.grpc:spring-grpc-test"

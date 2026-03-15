@@ -22,7 +22,7 @@ import java.util.Objects;
 @Configuration
 @ImportGrpcClients(target = "local", types = {SampleGrpc.SampleBlockingStub.class},
         basePackages = "com.example.grpc.client.repository")
-public class GrpcClientConfig {
+public class GrpcClientConfiguration {
 
 //    @Bean
 //    SimpleGrpc.SimpleBlockingStub stub(GrpcChannelFactory channels) {

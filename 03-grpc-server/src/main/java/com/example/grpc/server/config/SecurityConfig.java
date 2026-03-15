@@ -38,9 +38,9 @@ public class SecurityConfig {
     AuthenticationProcessInterceptor jwtSecurityFilterChain(GrpcSecurity grpc) throws Exception {
         return grpc
                 .authorizeRequests(requests -> requests
-                        .methods("Sample/SayHello").permitAll()
-//                        .methods("Simple/SayHello").hasAuthority("ROLE_ADMIN")
-//                        .methods("Simple/SayHello").hasAuthority("ROLE_USER")
+//                        .methods("Sample/SayHello").permitAll()
+//                        .methods("Sample/SayHello").hasAuthority("ROLE_ADMIN")
+                        .methods("Sample/SayHello").hasAuthority("ROLE_USER")
                         .methods("grpc.*/*").permitAll()
                         .methods("db").permitAll()
                         .allRequests().denyAll())

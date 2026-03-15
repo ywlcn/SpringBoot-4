@@ -35,7 +35,14 @@ public class UserGrpcService extends UserServiceGrpc.UserServiceImplBase {
     @Override
     public void createUser(UserServiceProto.CreateUserRequest request, StreamObserver<UserServiceProto.User> responseObserver) {
         // ビジネスロジック実行
-        UserEntity entity = userDomainService.insert(new UserEntity(UUID.randomUUID().toString(), request.getName(), request.getEmail()));
+        UserEntity entity = userDomainService.insert(new UserEntity(
+                UUID.randomUUID().toString(),
+                request.getName(),
+                request.getEmail(),
+                "",
+                "")
+
+        );
 
         // レスポンス作成
         UserServiceProto.User response = UserServiceProto.User.newBuilder()

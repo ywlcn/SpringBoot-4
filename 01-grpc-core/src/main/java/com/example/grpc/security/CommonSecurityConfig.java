@@ -1,19 +1,21 @@
 package com.example.grpc.security;
 
+import com.example.grpc.core.entity.UserEntity;
+import com.example.grpc.core.repository.UserRepository;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.ProviderManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
+@MapperScan("com.example.grpc.core.repository.mapper")
 public class CommonSecurityConfig {
 
     @Bean
@@ -27,7 +29,8 @@ public class CommonSecurityConfig {
 //        // テストユーザー1: 一般ユーザー
 //        UserDetails user = User.builder()
 //                .username("user1")
-////                .password(passwordEncoder.encode("password"))
+
+    /// /                .password(passwordEncoder.encode("password"))
 //                .password(passwordEncoder.encode("password"))
 //                .roles("USER")
 //                .build();
@@ -50,11 +53,24 @@ public class CommonSecurityConfig {
 //        return providerManager;
 //    }
 //
-//    @Bean
-//    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-//
-//        String password = passwordEncoder.encode("password");
-//
+    @Bean
+    public InMemoryUserDetailsManager userDetailsService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+
+        List<UserEntity> users = userRepository.findAll();
+
+
+        List<UserDetails> userDetails = new ArrayList<>();
+
+
+        users.forEach( u -> {
+            UserDetails user = User.builder()
+                    .username(u.getName())
+                    .password(passwordEncoder.encode(u.getPassword()))
+                    .roles(u.getRoles().split(","))
+                    .build();
+            userDetails.add(user);
+        });
+
 //        // テストユーザー1: 一般ユーザー
 //        UserDetails user = User.builder()
 //                .username("user1")
@@ -69,11 +85,11 @@ public class CommonSecurityConfig {
 //                .password(passwordEncoder.encode("admin123"))
 //                .roles("ADMIN")
 //                .build();
-//
-//        InMemoryUserDetailsManager manager =  new InMemoryUserDetailsManager(user, admin);
+
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(userDetails);
 //        manager.setAuthenticationManager();
-//
-//        return manager;
-//    }
+
+        return manager;
+    }
 
 }
