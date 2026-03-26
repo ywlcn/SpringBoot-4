@@ -509,3 +509,40 @@ AuthenticationProcessInterceptor jwtSecurityFilterChain(GrpcSecurity grpc) throw
 
 ```
 
+
+
+
+
+
+
+
+
+強化学習、転移学習、シンギュラリティ
+
+AGI（Artificial General Intelligence）
+ANI（Artificial Narrow Intelligence）
+
+
+GAN　Generative Adversarial Networks
+VAE  Variational Autoencoder
+CNN  Convolutional Neural Network
+RNN Recurrent Neural Network
+勾配消失　Vanishing Gradient
+
+AI効果
+シンギュラリティ
+
+
+クラスタリングと次元削減
+
+
+過学習
+正則化（Regularization）、ドロップアウト（Dropout）、 アーリーストッピング（Early Stopping）
+
+
+
+半教師あり学習（半教師学習）
+自己回帰モデル   ボルツマンマシン
+
+
+   ハルシネーション

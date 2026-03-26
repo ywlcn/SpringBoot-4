@@ -32,7 +32,7 @@ public class SecurityConfiguration {
         http
 //                .csrf(csrf -> csrf.disable()) // APIやCookie管理の場合は要検討
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/css/**").permitAll()
+                        .requestMatchers("/login", "/css/**" , "/download").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(tokenProvider, userDetailsService),
